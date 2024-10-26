@@ -27,6 +27,7 @@
 						<li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
 						<li class="nav-item"><a class="nav-link" href="projects.html">Past Projects</a></li>
 						<li class="nav-item"><a class="nav-link active" href="contacts.html">Contact Us</a></li>
+						<li class="nav-item"><a class="nav-link" href="tutorial.html">Tutorial</a></li>
 					</ul>
 				</div>
 			</div>
@@ -48,22 +49,46 @@
 			</div>
 		</div>
 		<!-- Key section -->
-		<form class="container py-3">
-			<div class="row gy-3">
-				<!-- Label: Name*
-						 Text Input field -->
+		<form class="container ">
+			<div class="row gy-3 py-3">
+				<div class="col-6">
+					<label name="name" >Name<span class="text-danger">*</span></label>
+					<input type="text" class="form-control" id="Name" name="Name" placeholder="John Doe" required/>
+					<p id="nameErrorMsg" class="d-none text-danger">Invalid field, name cannot be empty</p>
+				</div>
 
-				<!-- Label: Email Address*
-						 Email Input field -->
+				<div class="col-6">
+					<label name="email">Email Address<span class="text-danger">*</span></label>
+					<input type="email" class="form-control" id="email" name="email" placeholder = "xxx@email.com" required/>
+					<p id="emailErrorMsg" class="d-none text-danger">Invalid field, email cannot be empty</p>
+				  </div>
+				</div>
+			</div>
+			
+			<div class="row gy-3 py-3">
+				<div class="col-12">
+					<label name="subject">Subject<span class="text-danger">*</span></label>
+					<input type="text" class="form-control" id="subject" name="subject" placeholder="Enquiry on how to code" required/>
+					<p id="subjectErrorMsg" class="d-none text-danger">Invalid field, subject cannot be empty</p>
+				</div>
+			</div>
 
-				<!-- Label: Subject*
-						 Text Input field with placeholder text "Enquiry on how to code"-->
+			<div class="row gy-3 py-3">
+				<div class = "col-12">
+					<label name="message">Message<span class="text-danger">*</span></label>
+					<textarea class="form-control" id="message" name="message" placeholder="Enquiry Message Here" rows="5"required></textarea>
+					<p id="messageErrorMsg" class="d-none text-danger">Invalid field, message cannot be empty</p>
+				</div>
+			</div>
 
-				<!-- Label: Subject*
-						 Textarea field with the row attribute of value 5-->
+
+			</div>
+			<div>
+				<button type="button" class="btn btn-primary" id="submitButton" onclick="validate()">Send</button>
 			</div>
 			<!-- Code a blue "Send" button inside a <div> according to the criteria stated -->
 		</form>
+
 	</article>
 	<!-- End of coding region -->
 	<footer class="bg-dark text-light"><div class="container py-2 pb-4">Done by Computhink Kids SG.</div></footer>

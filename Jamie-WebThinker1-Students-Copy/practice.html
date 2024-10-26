@@ -39,6 +39,9 @@
 
     </style>
   </head>
+  <div class="collapse navbar-collapse" id="navlinks">
+    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+      <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
   <body style="font-family: Arial;">
     <h1 style="font-family: Georgia ">This is heading h1 size</h1>
     <h2 class="text-center" id="a">This is heading h2 size</h2>
@@ -91,7 +94,61 @@
       <div class="col-1 border border-dark">Column 4</div>
     </div>
   <body>
+    <form>
+      <div class ="row">
+        <div class="col">
+          <label name="fName" >First Name<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="fName" name="fName" placeholder="John Doe" required/>
+
+          
+            <label name="lName" >Last Name</label>
+            <input type="text" class="form-control" id="lName" name="lName"/>
+        
+      </div>
+      
+      <div class="row">
+          <div class="col">
+            <label name="contact">Contact number</label>
+            <input type="number" class="form-control" id="contact" name="contact"/>
+            <p id="contactErrorMsg" class="d-none text-danger">Invalid Number</p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col">
+            <label name="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email"/>
+          </div>
+        </div>
+        
+        <div class="row">
+          <select class="form-control">
+            <option value=1>Option 1</option>
+            <option value=2>Option 2</option>
+            <option value=3>Option 3</option>
+          </select>
+        </div>
+        
+        
+        <button type="button" class="btn btn-primary" id="submitBtn" onclick="validate()">Submit</button>
+      
+        
+      </form>
       <script>
+        let validate = () => {
+          let num = document.getElementById("contact");
+          let errorMsg = document.getElementById("contactErrorMsg");
+          if (num.value.length == 0){
+            num.classList = "form-control is-invalid";
+            errorMsg.classList = "text-danger";
+          }
+          else{
+            num.classList = "form-control";
+            errorMsg.classList = "d-none text-danger";
+            console.log("All Good");
+          }
+
+        };
           var helloworld = "Hello World!";
 
           console.log(helloworld);
@@ -116,7 +173,7 @@
           else if(num<0){
             console.log("Negative number.")}
           else{
-            console.log("The number is 0")}
+            console.log("The number is 0")};
 
       </script>
   </body>

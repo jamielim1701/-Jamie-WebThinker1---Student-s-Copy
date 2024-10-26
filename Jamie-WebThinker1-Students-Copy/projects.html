@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-SG">
+
 <head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width"/>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
 	<title>Byte Buster Coding Club</title>
 	<script src="script/jquery.min.js"></script>
 	<script src="script/bootstrap.js"></script>
-	<script src="script/projects.js"></script>
-	<link href="script/bootstrap.css" rel="stylesheet"/>
-	<link href="img/favicon-bbcc.png" rel="icon"/>
-	<link href="script/projects.css" rel="stylesheet"/>
+	<link href="script/bootstrap.css" rel="stylesheet" />
+	<link href="img/favicon-bbcc.png" rel="icon" />
+	<link href="script/projects.css" rel="stylesheet" />
+
 </head>
+
 <body class="bg-secondary bg-opacity-10" style="min-width:320px">
 	<header>
 		<nav class="navbar navbar-dark navbar-expand-lg bg-primary">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="index.html">
 					<img src="img/logo-bbcc.png" alt="logo" class="d-inline-block" style="max-height:3rem">
-					<span class="d-none d-sm-inline-block align-middle">Byte Buster<small class="d-block lh-xs fs-7">Coding Club</small></span></a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlinks"><span class="navbar-toggler-icon"></span></button>
+					<span class="d-none d-sm-inline-block align-middle">Byte Buster<small
+							class="d-block lh-xs fs-7">Coding Club</small></span></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlinks"><span
+						class="navbar-toggler-icon"></span></button>
 				<div class="collapse navbar-collapse" id="navlinks">
 					<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="memberspotlight.html">Member Spotlight</a></li>
+						<li class="nav-item"><a class="nav-link" href="memberspotlight.html">Member Spotlight</a></li>
 						<li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
 						<li class="nav-item"><a class="nav-link active" href="projects.html">Past Projects</a></li>
 						<li class="nav-item"><a class="nav-link" href="contacts.html">Contact Us</a></li>
+						<li class="nav-item"><a class="nav-link" href="tutorial.html">Tutorial</a></li>
 					</ul>
 				</div>
 			</div>
@@ -34,7 +39,9 @@
 	<!-- Here the main container where students should code -->
 	<article class="min-vh-100">
 		<!-- Banner Region -->
-		<div id="banner"></div>
+		<div id="banner" class="text-center pt-3 pb-3">
+			<img src="img/banner-gaming-2.png" alt="banner" class="d-inline-block " style="max-height:25rem "> 
+		</div>
 		<!-- Page Header -->
 		<div class="container pt-4 py-3">
 			<h1 class="text-center fw-bold display-4">Past Projects</h1>
@@ -43,24 +50,80 @@
 		<!-- Leading Text -->
 		<div class="py-3 bg-success bg-opacity-25">
 			<div class="container">
-				<p>Ever wondered what happens when teenagers armed with coding knowledge decide to conquer the universe? Well, we got the answer right here! Welcome to our showcase of stellar projects.</p>
+				<p>Ever wondered what happens when teenagers armed with coding knowledge decide to conquer the universe?
+					Well, we got the answer right here! Welcome to our showcase of stellar projects.</p>
 			</div>
 		</div>
 		<!-- Key section -->
 		<div class="container py-3 pb-4">
-			<!-- Create An Unordered List with 2 List Items -->
+			<ul class="nav nav-pills">
+				<li class="nav-item"><button class="nav-link rounded-pill active" data-bs-target="#scratch"
+						data-bs-toggle="pill">Scratch Programs</button></li>
+				<li class="nav-item"><button class="nav-link rounded-pill" data-bs-target="#html" data-bs-toggle="pill">HTML Canvas Projects</button></li>
+			</ul>
 
 			<div class="tab-content">
-				<!-- Create two tabs for Project Showcase
-	-  The first tab should have
-				- One header of "Monke & Banana" with the following source: https://scratch.mit.edu/projects/808392264/embed (Width 485 & Height 402)
-				- Another header of "Platformer Game" with the following source: https://scratch.mit.edu/projects/779856092/embed (Width 485 & Height 402)
+				<div class="tab-pane fade show active" id="scratch">
+					<iframe src="https://scratch.mit.edu/projects/808392264/embed" width="485" height="402"
+						title="Monke & Banana"></iframe>
+					<iframe src="https://scratch.mit.edu/projects/779856092/embed" width="485" height="402"
+						title="Platformer Game"></iframe>
+				</div>
+				<div class="tab-pane fade" id="html">
+					<canvas id="canvasBoard" width="800" height="600" class="border border-dark"></canvas>
+					<div class = "btn-group">
+						<input class="btn-check" type="radio" name = "pauseAnimation" id = "pauseAnimation" checked>
+						<label class = "btn btn-danger" for="pauseAnimation">Pause Animation</label>
 
-	-  The second tab should have
+						<input class="btn-check" type="radio" name = "playAnimation" id = "playAnimation">
+						<label class = "btn btn-outline-success" for="playAnimation">Play Animation</label>
+					</div>
+					<script>
+						/*const canvas = document.getElementById("canvasBoard");
+						let ctx = canvas.getContext("2d");
+						let gradient = ctx.createRadialGradient(50, 50, 0, 150, 150, 150);
+						let canvasWidthMiddle = canvas.width / 2;
+						let canvasHeightMiddle = canvas.height / 2;
+						ctx.font = "50px Comic Sans MS";
+						ctx.textAlign = "center";
+						ctx.fillStyle = "rgb(255, 0, 0)";
+						ctx.fillText("Hello World!", 50, 150);
+						    
+						//let gradient = ctx.createRadialGradient(50, 50, 0, 150, 150, 150);
+						gradient.addColorStop(0, "rgb(0, 0, 255)");
+						gradient.addColorStop(0.5, "rgb(255, 0, 0)");
+						gradient.addColorStop(1, "rgb(255, 255, 0)");
+
+						ctx.fillStyle = gradient;
+						ctx.fillRect(10, 10, 300, 200);
+
+						ctx.lineWidth = 5;
+						ctx.strokeStyle = "rgb(0, 0, 0)";
+						ctx.fillStyle = "rgb(0, 0, 255)";
+						ctx.arc(canvasWidthMiddle, canvasHeightMiddle, 100, 0, 2 * Math.PI);
+						ctx.stroke();
+						ctx.fill();
+
+						ctx.fillStyle = "rgb(200, 0, 0)";
+						ctx.fillRect(10, 10, 100, 100);
+						ctx.fillStyle = "rgb(0, 0,  200, 0.5)";
+						ctx.fillRect(50, 50, 100, 100);
+
+						ctx.beginPath();
+						ctx.moveTo(0,0);
+						ctx.lineTo(800,600)
+						ctx.stroke();*/
+					</script>
+				</div>
+				
+
+
+
+		<!--  The second tab should have
 				- A Canvas with a black border of size: Width 800 & Height 600 with an ID of "canvasBoard"
 				- 2 radio buttons:
 						- One of them should be named "Pause Animation" with an ID of "canvasPause" with a red looking appearance.
-						- Another one should be named "Play Animation"  with an ID of "canvasPlay" with a green looking appearance.  -->
+						- Another one should be named "Play Animation"  with an ID of "canvasPlay" with a green looking appearance.-->
 
 			</div>
 		</div>
@@ -69,5 +132,7 @@
 	<footer class="bg-dark text-light">
 		<div class="container py-2 pb-4">Done by Computhink Kids SG.</div>
 	</footer>
+	<script src="script/projects.js"></script>
 </body>
+
 </html>
