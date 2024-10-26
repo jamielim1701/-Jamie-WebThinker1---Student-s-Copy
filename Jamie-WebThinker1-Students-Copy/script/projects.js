@@ -1,56 +1,73 @@
-let canvas, ctx, ballRadius, x, y, dx, dy;
+const canvasBoard = document.getElementById("CanvasBoard");
+let ctx = canvasBoard.getContext('2d');
+
+let X = 0
+let Y = 0
+
+let DX = 10;
+let DY = 10;
+
+let RADIUS = 10;
+
+let drawball = () => {
+    if(document.getElementById("playAnimation").checked){
+        ctx.reset();
+
+        ctx.beginPath();
+        ctx.arc(X, Y, RADIUS, 0, 2*Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        if(X < 0 || X > canvasBoard.width){
+            DX = -DX;
+        }
+
+        if(Y < 0 || Y > canvasBoard.height){
+            DY = -DY;
+
+        }
+        X += DX;
+        Y += DY;
+    }
+    
+    requestAnimationFrame(drawball);
+
+};
 
 window.onload = () => {
-	
-	canvas = document.getElementById('canvasBoard');
-	ctx = canvas.getContext('2d');
 
-	
-	ballRadius = 10;
-	x = canvas.width / 2 - ballRadius / 2;
-	y = canvas.height / 2 - ballRadius / 2;
-	dx = 2;
-	dy = -2;
+    drawball();
 
-	// start the animation
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	drawBall();
-	updateCanvas();
 }
 
+// let drawball = () => {
+//     if(document.getElementById("playAnimation").checked){
+//         ctx.reset();
 
-// function to draw the ball
-let drawBall = () => {
-	ctx.beginPath();
-	ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-	ctx.fillStyle = "rgb(0,0,0)"
-	ctx.fill();
-	ctx.closePath();
-}
+//         ctx.beginPath();
+//         ctx.arc(X, Y, RADIUS, 0, 2*Math.PI);
+//         ctx.fill();
+//         ctx.closePath();
 
-// function to update canvas
-let updateCanvas = () => {
-	if (document.getElementById("playAnimation").checked) {
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		drawBall();
+//         if(X < 0 || X > canvasBoard.width){
+//             DX = -DX;
+//         }
 
-		// check collision with the left or right edge
-		if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
-			dx = -dx;
-		}
-		// check collision with the top or bottom edge
-		if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
-			dy = -dy;
-		}
+//         if(Y < 0 || Y > canvasBoard.height){
+//             DY = -DY;
 
-		// update ball's position
-		x += dx;
-		y += dy;
-	}
+            
+//         }
 
-	// call updateCanvas again at the next frame
-	requestAnimationFrame(updateCanvas);
-}
+//         X += DX;
+//         Y += DY;
+//     }
+        
+//     requestAnimationFrame(drawball);
+
+// };
+
+// drawball();
 
 
 
